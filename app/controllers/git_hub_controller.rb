@@ -23,7 +23,11 @@ class GitHubController < ApplicationController
 
   def find_member_info(member)
     url = "https://api.github.com/users/#{member}"
-    member_serialized = URI.open(url, "Authorization" => "token #{ENV['GITHUB_API_TOKEN']}").read
+    if ENV['GITHUB_API_TOKEN']
+      member_serialized = URI.open(url, "Authorization" => "token #{ENV['GITHUB_API_TOKEN']}").read
+    else
+      member_serialized = URI.open(url).read
+    end
     member = JSON.parse(member_serialized)
     @name = member['name']
     @image = member['avatar_url']
@@ -32,7 +36,11 @@ class GitHubController < ApplicationController
 
   def find_repositories(member)
     url = "https://api.github.com/users/#{member}/repos"
-    member_repos_serialized = URI.open(url, "Authorization" => "token #{ENV['GITHUB_API_TOKEN']}").read
+    if ENV['GITHUB_API_TOKEN']
+      member_repos_serialized = URI.open(url, "Authorization" => "token #{ENV['GITHUB_API_TOKEN']}").read
+    else
+      member_repos_serialized = URI.open(url).read
+    end
     member_repos = JSON.parse(member_repos_serialized)
   end
 
