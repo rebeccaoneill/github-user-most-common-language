@@ -1,0 +1,18 @@
+.navbar {
+  display: flex;
+  color: black;
+  background: white;
+  border-bottom: lightgray 1px solid;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  justify-content: space-evenly;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-bottom: 16px;
+  img{
+    width: 50px;
+    height: 50px;
+  }
+}

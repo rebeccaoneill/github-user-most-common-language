@@ -1,0 +1,22 @@
+
+  <div class='navbar'>
+    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub logo">
+    <h1>Find a GitHub users most common language</h1>
+  </div>
+  <div class='container'>
+    <div data-controller="github">
+    <div id='search-form'>
+      <%= form_with url: "/search", method: :get, data: {action: 'submit->github#search'}, class: 'form-container' do %>
+      <div class='form-contents'>
+          <label for="member"> Search for a GitHub user:</label>
+          <div class='submit-field'>
+            <%= text_field_tag :member, params[:member], id: 'member', placeholder: 'GitHub username'%>
+            <%= submit_tag "Search", class: "btn"%>
+          </div>
+      </div>
+      <% end %>
+    </div>
+      <div id='results' data-github-target='results'>
+      </div>
+    </div>
+  </div>
