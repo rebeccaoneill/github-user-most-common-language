@@ -8,9 +8,9 @@
     <div id='search-form'>
       <%= form_with url: "/search", method: :get, data: {action: 'submit->github#search'}, class: 'form-container' do %>
       <div class='form-contents'>
-          <label for="member"> Search for a GitHub user:</label>
+          <label for="member"> Search for a GitHub user</label>
           <div class='submit-field'>
-            <%= text_field_tag :member, params[:member], id: 'member', placeholder: 'GitHub username'%>
+            <%= text_field_tag :member, params[:member], id: 'member', placeholder: 'GitHub username', maxlength: 39 %>
             <%= submit_tag "Search", class: "btn"%>
           </div>
       </div>

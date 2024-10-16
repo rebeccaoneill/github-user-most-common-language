@@ -68,3 +68,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'webmock'
+
+end

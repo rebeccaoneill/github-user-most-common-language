@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['results']
+  static targets = ['results', 'input', 'error']
 
   connect() {
     console.log(this.resultsTarget);

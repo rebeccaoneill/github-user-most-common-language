@@ -7,7 +7,7 @@ class GitHubController < ApplicationController
   end
 
   def search
-    @member = params[:member]
+    @member = params[:member].strip
     find_member_info(@member)
     most_common_language = most_common_language(find_repositories(@member))
     render json: {
