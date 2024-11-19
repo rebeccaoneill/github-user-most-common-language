@@ -9,7 +9,8 @@ class GitHubController < ApplicationController
   def search
     @member = params[:member].strip
     find_member_info(@member)
-    most_common_language = most_common_language(find_repositories(@member))
+    most_common_language = most_common_language(find_repositories(@member)) #GithubService.new(....)
+
     render json: {
       language: most_common_language,
       member: @member,
